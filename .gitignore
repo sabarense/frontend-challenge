@@ -1,0 +1,37 @@
+# Arquivos de build TypeScript
+/dist
+*.js
+!jest.config.js
+
+# Arquivos de teste
+__tests__/
+*.spec.*
+*.test.*
+
+# Cache do TypeScript
+.tscache/
+
+# Arquivos específicos do seu projeto
+/src/**/*.js
+/src/**/*.js.map
+
+# Cache do React
+.react-cache/
+
+# Arquivos de desenvolvimento
+.hot/
+.history/
+
+# Arquivos de debug
+debug/
+.debug/
+
+# Arquivos de cobertura de teste específicos do seu projeto
+/coverage/
+.nyc_output/
+
+# Arquivos de ambiente (mantenha apenas .env.example)
+.env
+.env.*
+!.env.example
+node_modules
