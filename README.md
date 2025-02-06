@@ -1,46 +1,44 @@
-# Getting Started with Create React App
+# 🌟 Sistema de Gerenciamento de Notas e Frequência 📚
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição
+Este sistema permite gerenciar as **notas** e **frequências** dos alunos, proporcionando uma visão clara do desempenho da turma. Ele exibe informações como a média da turma, alunos com média acima da média, alunos com frequência abaixo de 75%, além de permitir a criação e atualização de dados dos alunos.
 
-## Available Scripts
+## Funcionalidades 🚀
 
-In the project directory, you can run:
+- **Cadastro de alunos** 📝: Adicione novos alunos com nome, notas e frequência.
+- **Exibição de alunos** 👀: Visualize a lista de alunos com suas respectivas médias de notas e frequências.
+- **Destaques** 🌟:
+  - Alunos com **média acima da turma** são destacados em verde 🍀.
+  - Alunos com **frequência abaixo de 75%** são destacados em laranja 🍊.
+- **Atualização de dados** 🔄: Recalcule as médias da turma e atualize as informações dos alunos.
+- **Visualização de alunos específicos** 🔍:
+  - Exiba alunos com **média superior** à da turma.
+  - Exiba alunos com **frequência abaixo de 75%**.
 
-### `npm start`
+## Tecnologias Usadas 🛠️
+- **React** ⚛️: Biblioteca JavaScript para a criação da interface de usuário.
+- **TypeScript** 🖥️: Superset do JavaScript para uma tipagem mais robusta e segura.
+- **Material UI (MUI)** 🎨: Framework de componentes React para design com material.
+- **Axios** 📡: Biblioteca para realizar requisições HTTP ao backend.
+- **Node.js** 🌐: Ambiente de execução JavaScript para rodar o frontend.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Instalação e Execução ⚙️
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Pré-requisitos ⚡
+1. **Node.js e npm**: Certifique-se de ter o [Node.js](https://nodejs.org/) e o [npm](https://www.npmjs.com/) instalados.
 
-### `npm test`
+### Passos para Execução 🚶‍♂️
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. **Clonar o repositório**:
+   ```bash
+   git clone https://github.com/sabarense/frontend-challenge
+   cd frontend-challenge
+   ```
+2. **Instalar dependências**:
+    ```bash
+    npm install
+    ```
+3. **Executar o projeto: Inicie o servidor de desenvolvimento com o comando**:
+   ```bash
+   npm start
+   ```
