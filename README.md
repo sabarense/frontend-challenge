@@ -46,13 +46,13 @@ Este repositório contém o frontend para o Sistema de Gerenciamento de Notas e 
 ## Decisões de Projeto 💡
 Estrutura de Componentes: A aplicação foi organizada com dois componentes principais:
 
-AlunoForm: Para criar novos alunos 🖊️.
-AlunoList: Para exibir a lista de alunos e suas informações 📋.
-Uso de Material UI: Optado o uso Material UI para garantir uma interface moderna, responsiva e agradável ao usuário 🎨.
+- AlunoForm: Para criar novos alunos 🖊️.
+- AlunoList: Para exibir a lista de alunos e suas informações 📋.
+- Uso de Material UI: Optado o uso Material UI para garantir uma interface moderna, responsiva e agradável ao usuário 🎨.
 
-Requisições Assíncronas com Axios: As interações com o backend são feitas de forma assíncrona com Axios, proporcionando uma experiência de usuário fluida ⚡.
+- Requisições Assíncronas com Axios: As interações com o backend são feitas de forma assíncrona com Axios, proporcionando uma experiência de usuário fluida ⚡.
 
-Destaque Visual de Alunos: Alunos com desempenho excepcional ou crítico são destacados visualmente, facilitando a gestão das informações 🔍.
+- Destaque Visual de Alunos: Alunos com desempenho excepcional ou crítico são destacados visualmente, facilitando a gestão das informações 🔍.
 
 ## Contribuições 🤝 
 Se você quiser contribuir com o projeto, fique à vontade para abrir issues e pull requests.
