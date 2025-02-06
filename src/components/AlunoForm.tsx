@@ -25,7 +25,7 @@ const AlunoForm = () => {
       alert("As notas devem ser valores entre 0 e 10");
       return false;
     }
-    if (frequencia <= 0 || frequencia > 100) {
+    if (frequencia < 0 || frequencia > 100) {
       alert("A frequência deve ser um valor entre 0 e 100");
       return false;
     }
@@ -85,7 +85,7 @@ const AlunoForm = () => {
                       variant="outlined"
                       type="number"
                       fullWidth
-                      value={notas[index] || ""}
+                      value={notas[index] !== undefined ? notas[index] : ""}
                       onChange={(e) => {
                         const newNotas = [...notas];
                         newNotas[index] = parseFloat(e.target.value) || 0;
@@ -95,6 +95,8 @@ const AlunoForm = () => {
                       InputProps={{
                         inputProps: {
                           step: 0.1,
+                          min: 0,
+                          max: 10,
                         },
                       }}
                     />
@@ -107,12 +109,14 @@ const AlunoForm = () => {
                   variant="outlined"
                   type="number"
                   fullWidth
-                  value={frequencia || ""}
-                  onChange={(e) => setFrequencia(Number(e.target.value))}
+                  value={frequencia !== undefined ? frequencia : ""}
+                  onChange={(e) => setFrequencia(Number(e.target.value) || 0)}
                   required
                   InputProps={{
                     inputProps: {
                       step: 0.1,
+                      min: 0,
+                      max: 100,
                     },
                   }}
                 />
