@@ -9,24 +9,35 @@ import {
   Box,
   Card,
   CardContent,
+  Snackbar,
+  Alert,
 } from "@mui/material";
 
 const AlunoForm = () => {
   const [notas, setNotas] = useState<number[]>([]);
-  const [frequencia, setFrequencia] = useState<number>(0);
+  const [frequencia, setFrequencia] = useState<number | "">("");
   const [nome, setNome] = useState<string>("");
+  const [snackbar, setSnackbar] = useState<{ open: boolean; message: string; severity: "success" | "error" }>({
+    open: false,
+    message: "",
+    severity: "success",
+  });
+
+  const handleSnackbarClose = () => {
+    setSnackbar({ ...snackbar, open: false });
+  };
 
   const validarAluno = () => {
     if (!nome || nome.trim() === "") {
-      alert("Nome do aluno é obrigatório");
+      setSnackbar({ open: true, message: "Nome do aluno é obrigatório", severity: "error" });
       return false;
     }
     if (notas.some((nota) => nota < 0 || nota > 10)) {
-      alert("As notas devem ser valores entre 0 e 10");
+      setSnackbar({ open: true, message: "As notas devem ser valores entre 0 e 10", severity: "error" });
       return false;
     }
-    if (frequencia < 0 || frequencia > 100) {
-      alert("A frequência deve ser um valor entre 0 e 100");
+    if (frequencia === "" || frequencia < 0 || frequencia > 100) {
+      setSnackbar({ open: true, message: "A frequência deve ser um valor entre 0 e 100", severity: "error" });
       return false;
     }
     return true;
@@ -36,16 +47,16 @@ const AlunoForm = () => {
     e.preventDefault();
     if (!validarAluno()) return;
 
-    const aluno: AlunoRequestDTO = { nome, notas, frequencia };
+    const aluno: AlunoRequestDTO = { nome, notas, frequencia: Number(frequencia) };
     try {
       await criarAluno(aluno);
-      alert("Aluno criado com sucesso!");
+      setSnackbar({ open: true, message: "Aluno criado com sucesso!", severity: "success" });
       setNome("");
-      setNotas([]);  
-      setFrequencia(0);  
+      setNotas([]);
+      setFrequencia("");
     } catch (error) {
       console.error("Erro ao criar aluno", error);
-      alert("Ocorreu um erro ao criar o aluno");
+      setSnackbar({ open: true, message: "Ocorreu um erro ao criar o aluno", severity: "error" });
     }
   };
 
@@ -78,30 +89,34 @@ const AlunoForm = () => {
               </Grid>
               <Grid item xs={12}>
                 <Typography variant="subtitle1">Notas</Typography>
-                {Array(5).fill(null).map((_, index) => (
-                  <Grid item xs={12} key={index}>
-                    <TextField
-                      label={`Nota na disciplina ${index + 1}`}
-                      variant="outlined"
-                      type="number"
-                      fullWidth
-                      value={notas[index] !== undefined ? notas[index] : ""}
-                      onChange={(e) => {
-                        const newNotas = [...notas];
-                        newNotas[index] = parseFloat(e.target.value) || 0;
-                        setNotas(newNotas);
-                      }}
-                      required
-                      InputProps={{
-                        inputProps: {
-                          step: 0.1,
-                          min: 0,
-                          max: 10,
-                        },
-                      }}
-                    />
-                  </Grid>
-                ))}
+                {Array(5)
+  .fill(null)
+  .map((_, index) => (
+    <Grid item xs={12} key={index}>
+      <TextField
+        label={`Nota na disciplina ${index + 1}`}
+        variant="outlined"
+        type="number"
+        fullWidth
+        value={!isNaN(notas[index]) ? notas[index] : ""}
+        onChange={(e) => {
+          const inputValue = e.target.value;
+          const newNotas = [...notas];
+          newNotas[index] = inputValue === "" ? NaN : parseFloat(inputValue);
+          setNotas(newNotas);
+        }}
+        required
+        InputProps={{
+          inputProps: {
+            step: 0.1,
+            min: 0,
+            max: 10,
+          },
+        }}
+      />
+    </Grid>
+  ))}
+
               </Grid>
               <Grid item xs={12}>
                 <TextField
@@ -109,8 +124,8 @@ const AlunoForm = () => {
                   variant="outlined"
                   type="number"
                   fullWidth
-                  value={frequencia !== undefined ? frequencia : ""}
-                  onChange={(e) => setFrequencia(Number(e.target.value) || 0)}
+                  value={frequencia}
+                  onChange={(e) => setFrequencia(e.target.value === "" ? "" : Number(e.target.value))}
                   required
                   InputProps={{
                     inputProps: {
@@ -123,13 +138,18 @@ const AlunoForm = () => {
               </Grid>
               <Grid item xs={12}>
                 <Button variant="contained" color="primary" fullWidth type="submit">
-                  Criar Aluno
+                  Registrar aluno
                 </Button>
               </Grid>
             </Grid>
           </form>
         </CardContent>
       </Card>
+      <Snackbar open={snackbar.open} autoHideDuration={6000} onClose={handleSnackbarClose}>
+        <Alert onClose={handleSnackbarClose} severity={snackbar.severity} sx={{ width: "100%" }}>
+          {snackbar.message}
+        </Alert>
+      </Snackbar>
     </Box>
   );
 };
