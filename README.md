@@ -1,7 +1,7 @@
-# 🌟 Sistema de Gerenciamento de Notas e Frequência 📚
+# 🌟 Sistema de Gerenciamento de Notas e Frequência - Frontend 📚
 
 ## Descrição
-Este sistema permite gerenciar as **notas** e **frequências** dos alunos, proporcionando uma visão clara do desempenho da turma. Ele exibe informações como a média da turma, alunos com média acima da média, alunos com frequência abaixo de 75%, além de permitir a criação e atualização de dados dos alunos.
+Este repositório contém o frontend para o Sistema de Gerenciamento de Notas e Frequência. Ele oferece uma interface para gerenciar alunos, suas notas e frequências, exibindo informações cruciais como a média da turma, alunos com desempenho excepcional ou crítico e permitindo o cadastro dos alunos.
 
 ## Funcionalidades 🚀
 
@@ -42,3 +42,19 @@ Este sistema permite gerenciar as **notas** e **frequências** dos alunos, propo
    ```bash
    npm start
    ```
+
+## Decisões de Projeto 💡
+Estrutura de Componentes: A aplicação foi organizada com dois componentes principais:
+
+AlunoForm: Para criar novos alunos 🖊️.
+AlunoList: Para exibir a lista de alunos e suas informações 📋.
+Uso de Material UI: Optado o uso Material UI para garantir uma interface moderna, responsiva e agradável ao usuário 🎨.
+
+Requisições Assíncronas com Axios: As interações com o backend são feitas de forma assíncrona com Axios, proporcionando uma experiência de usuário fluida ⚡.
+
+Destaque Visual de Alunos: Alunos com desempenho excepcional ou crítico são destacados visualmente, facilitando a gestão das informações 🔍.
+
+## Contribuições 🤝 
+Se você quiser contribuir com o projeto, fique à vontade para abrir issues e pull requests.
+## Licença 📄
+Este projeto está licenciado sob a MIT License.
