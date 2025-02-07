@@ -43,7 +43,11 @@ const AlunoList = () => {
           {mediasTurma.map((media, index) => (
             <Chip
               key={index}
-              label={`Disciplina ${index + 1}: ${media.toFixed(2)}`}
+              label={
+                <Typography sx={{ fontSize: "1.0rem", fontWeight: "bold" }}>
+                  {`Disciplina ${index + 1}: ${media.toFixed(2)}`}
+                </Typography>
+              }
               color="primary"
               variant="outlined"
             />
@@ -68,16 +72,15 @@ const AlunoList = () => {
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
                 sx={{
-                  backgroundColor:
-                    frequenciaBaixa
-                      ? "#ffccbc"
-                      : acimaMediaDisciplinas.some(Boolean)
-                      ? "#c8e6c9"
-                      : abaixoMediaDisciplinas.some(Boolean)
-                      ? "#ffebee"
-                      : naMediaDisciplinas.some(Boolean)
-                      ? "#e0f7fa" 
-                      : "#ffffff",
+                  backgroundColor: frequenciaBaixa
+                    ? "#ffccbc"
+                    : acimaMediaDisciplinas.some(Boolean)
+                    ? "#c8e6c9"
+                    : abaixoMediaDisciplinas.some(Boolean)
+                    ? "#ffebee"
+                    : naMediaDisciplinas.some(Boolean)
+                    ? "#e0f7fa"
+                    : "#ffffff",
                   boxShadow: 3,
                   height: "100%",
                   display: "flex",
