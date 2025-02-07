@@ -7,11 +7,11 @@ import {
   CardContent,
   Chip,
   IconButton,
-  Tooltip, 
+  Tooltip,
 } from "@mui/material";
 import { AlunoRequestDTO } from "../models/AlunoRequestDTO";
 import { getAlunos, calcularMediaTurma } from "../services/alunoService";
-import RefreshIcon from "@mui/icons-material/Refresh"; 
+import RefreshIcon from "@mui/icons-material/Refresh";
 
 const AlunoList = () => {
   const [alunos, setAlunos] = useState<AlunoRequestDTO[]>([]);
@@ -35,7 +35,13 @@ const AlunoList = () => {
 
   return (
     <Box sx={{ padding: 3 }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+        }}
+      >
         <Typography variant="h4" gutterBottom>
           Lista de Alunos
         </Typography>
@@ -45,12 +51,12 @@ const AlunoList = () => {
             color="primary"
             onClick={buscarDados}
             sx={{
-              fontSize: 24, 
-              backgroundColor: "rgba(0, 0, 0, 0.1)", 
-              borderRadius: "50%", 
+              fontSize: 24,
+              backgroundColor: "rgba(0, 0, 0, 0.1)",
+              borderRadius: "50%",
               padding: 1,
               "&:hover": {
-                backgroundColor: "rgba(0, 0, 0, 0.2)", 
+                backgroundColor: "rgba(0, 0, 0, 0.2)",
               },
             }}
           >
@@ -94,15 +100,7 @@ const AlunoList = () => {
             <Grid item xs={12} sm={6} md={4} key={index}>
               <Card
                 sx={{
-                  backgroundColor: frequenciaBaixa
-                    ? "#ffccbc"
-                    : acimaMediaDisciplinas.some(Boolean)
-                    ? "#c8e6c9"
-                    : abaixoMediaDisciplinas.some(Boolean)
-                    ? "#ffebee"
-                    : naMediaDisciplinas.some(Boolean)
-                    ? "#e0f7fa"
-                    : "#ffffff",
+                  backgroundColor: "#f5f5f5",
                   boxShadow: 3,
                   height: "100%",
                   display: "flex",
@@ -135,7 +133,7 @@ const AlunoList = () => {
                     )}
                   </Typography>
 
-                  <Typography variant="body1" gutterBottom>
+                  <Typography variant="body1" gutterBottom sx={{ mt: 3 }}>
                     <strong>Notas por disciplina:</strong>
                   </Typography>
 
