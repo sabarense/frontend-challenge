@@ -149,7 +149,14 @@ const AlunoList = () => {
                             label="Acima da média"
                             color="success"
                             size="small"
-                            sx={{ ml: 1 }}
+                            sx={{
+                              ml: 1,
+                              backgroundColor: "rgba(76, 175, 80, 0.3)", 
+                              color: "#388E3C", 
+                              "&:hover": {
+                                backgroundColor: "rgba(76, 175, 80, 0.5)",
+                              },
+                            }}
                           />
                         )}
                         {nota < (mediasTurma[i] || 0) && (
@@ -157,7 +164,14 @@ const AlunoList = () => {
                             label="Abaixo da média"
                             color="error"
                             size="small"
-                            sx={{ ml: 1 }}
+                            sx={{
+                              ml: 1,
+                              backgroundColor: "rgba(244, 67, 54, 0.3)", 
+                              color: "#D32F2F", 
+                              "&:hover": {
+                                backgroundColor: "rgba(244, 67, 54, 0.5)", 
+                              },
+                            }}
                           />
                         )}
                         {nota === (mediasTurma[i] || 0) && (
