@@ -74,7 +74,7 @@ const AlunoList = () => {
                       ? "#ffebee"
                       : "#ffffff",
                   boxShadow: 3,
-                  height: "100%", // Deixa os cards com a mesma altura
+                  height: "100%", 
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
