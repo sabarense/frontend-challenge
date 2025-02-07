@@ -31,8 +31,14 @@ const App = () => {
       <CssBaseline />
       <AppBar position="fixed" sx={{ background: darkMode ? '#333' : '#f9f9f9', paddingY: 1 }}>
         <Toolbar>
-          <IconButton onClick={() => setDarkMode(!darkMode)} color="primary" aria-label="Toggle theme" edge="start">
-            <SunIcon sx={{ fontSize: 32 }} />
+          <IconButton
+            onClick={() => setDarkMode(!darkMode)}
+            color="primary"
+            aria-label="Toggle theme"
+            edge="start"
+            sx={{ padding: 0 }} 
+          >
+            <SunIcon sx={{ fontSize: 28 }} /> 
           </IconButton>
           <Typography variant="h5" sx={{ flexGrow: 1, textAlign: 'center', color: darkMode ? '#f5f5f5' : '#333' }}>
             Sistema de Gerenciamento de Notas e Frequência
@@ -41,18 +47,20 @@ const App = () => {
       </AppBar>
       <Toolbar />
       <Container maxWidth="lg" sx={{ paddingY: 4, marginTop: 3 }}>
-        {/* Seção com imagem icônica */}
+        
         <Box display="flex" justifyContent="center" mb={4}>
           <SchoolIcon color="primary" sx={{ fontSize: 80 }} />
         </Box>
 
-        <Paper sx={{
-          padding: 3,
-          marginBottom: 4,
-          backgroundColor: darkMode ? '#3c3c3c' : '#f9f9f9', 
-          color: darkMode ? '#e0e0e0' : '#333',
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)'
-        }}>
+        <Paper
+          sx={{
+            padding: 1,  
+            marginBottom: 4,
+            backgroundColor: darkMode ? '#3c3c3c' : '#f9f9f9', 
+            color: darkMode ? '#e0e0e0' : '#333',
+            boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+          }}
+        >
           <AlunoForm />
         </Paper>
 
