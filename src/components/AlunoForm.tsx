@@ -94,7 +94,7 @@ const AlunoForm = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minHeight: "100vh",
+        minHeight: "50vh",
         padding: 2,
       }}
     >
