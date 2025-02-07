@@ -117,11 +117,13 @@ const AlunoList = () => {
                     flexGrow: 1,
                   }}
                 >
-                  <Typography variant="h6" gutterBottom>
+                  {/* Nome */}
+                  <Typography variant="h6" gutterBottom sx={{ paddingBottom: 1 }}>
                     {aluno.nome}
                   </Typography>
 
-                  <Typography variant="body1" gutterBottom>
+                  {/* Frequência */}
+                  <Typography variant="body1" gutterBottom sx={{ paddingBottom: 1 }}>
                     <strong>Frequência:</strong> {aluno.frequencia}%{" "}
                     {frequenciaBaixa && (
                       <Chip
@@ -133,7 +135,8 @@ const AlunoList = () => {
                     )}
                   </Typography>
 
-                  <Typography variant="body1" gutterBottom sx={{ mt: 3 }}>
+                  {/* Notas */}
+                  <Typography variant="body1" gutterBottom sx={{ paddingBottom: 1 }}>
                     <strong>Notas por disciplina:</strong>
                   </Typography>
 
@@ -151,8 +154,8 @@ const AlunoList = () => {
                             size="small"
                             sx={{
                               ml: 1,
-                              backgroundColor: "rgba(76, 175, 80, 0.3)", 
-                              color: "#388E3C", 
+                              backgroundColor: "rgba(76, 175, 80, 0.3)",
+                              color: "#388E3C",
                               "&:hover": {
                                 backgroundColor: "rgba(76, 175, 80, 0.5)",
                               },
@@ -166,10 +169,10 @@ const AlunoList = () => {
                             size="small"
                             sx={{
                               ml: 1,
-                              backgroundColor: "rgba(244, 67, 54, 0.3)", 
-                              color: "#D32F2F", 
+                              backgroundColor: "rgba(244, 67, 54, 0.3)",
+                              color: "#D32F2F",
                               "&:hover": {
-                                backgroundColor: "rgba(244, 67, 54, 0.5)", 
+                                backgroundColor: "rgba(244, 67, 54, 0.5)",
                               },
                             }}
                           />
@@ -177,9 +180,16 @@ const AlunoList = () => {
                         {nota === (mediasTurma[i] || 0) && (
                           <Chip
                             label="Na média"
-                            color="info"
+                            color="warning"
                             size="small"
-                            sx={{ ml: 1 }}
+                            sx={{
+                              ml: 1,
+                              backgroundColor: "#fff1c2", 
+                              color: "#FF9800", 
+                              "&:hover": {
+                                backgroundColor: "rgba(255, 193, 7, 0.5)", 
+                              },
+                            }}
                           />
                         )}
                       </Typography>
