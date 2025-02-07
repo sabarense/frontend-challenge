@@ -116,11 +116,10 @@ const AlunoForm = () => {
                 />
               </Grid>
               <Grid item xs={12}>
-                <Typography variant="subtitle1">Notas</Typography>
                 {Array(5)
                   .fill(null)
                   .map((_, index) => (
-                    <Grid item xs={12} key={index}>
+                    <Grid item xs={12} key={index} sx={{ mb: 2 }}>
                       <TextField
                         label={`Nota na disciplina ${index + 1}`}
                         variant="outlined"
