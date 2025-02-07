@@ -5,11 +5,13 @@ import {
   Grid,
   Card,
   CardContent,
-  Button,
   Chip,
+  IconButton,
+  Tooltip, 
 } from "@mui/material";
 import { AlunoRequestDTO } from "../models/AlunoRequestDTO";
 import { getAlunos, calcularMediaTurma } from "../services/alunoService";
+import RefreshIcon from "@mui/icons-material/Refresh"; 
 
 const AlunoList = () => {
   const [alunos, setAlunos] = useState<AlunoRequestDTO[]>([]);
@@ -33,9 +35,29 @@ const AlunoList = () => {
 
   return (
     <Box sx={{ padding: 3 }}>
-      <Typography variant="h4" gutterBottom>
-        Lista de Alunos
-      </Typography>
+      <Box sx={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <Typography variant="h4" gutterBottom>
+          Lista de Alunos
+        </Typography>
+
+        <Tooltip title="Recarregar dados" arrow>
+          <IconButton
+            color="primary"
+            onClick={buscarDados}
+            sx={{
+              fontSize: 24, 
+              backgroundColor: "rgba(0, 0, 0, 0.1)", 
+              borderRadius: "50%", 
+              padding: 1,
+              "&:hover": {
+                backgroundColor: "rgba(0, 0, 0, 0.2)", 
+              },
+            }}
+          >
+            <RefreshIcon />
+          </IconButton>
+        </Tooltip>
+      </Box>
 
       <Box sx={{ mt: 3 }}>
         <Typography variant="h5">Média da turma por disciplina:</Typography>
@@ -157,12 +179,6 @@ const AlunoList = () => {
           );
         })}
       </Grid>
-
-      <Box sx={{ mt: 4, textAlign: "center" }}>
-        <Button variant="contained" color="primary" onClick={buscarDados}>
-          Recarregar página
-        </Button>
-      </Box>
     </Box>
   );
 };
