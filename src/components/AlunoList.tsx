@@ -59,6 +59,9 @@ const AlunoList = () => {
           const abaixoMediaDisciplinas = aluno.notas.map(
             (nota, i) => nota < (mediasTurma[i] || 0)
           );
+          const naMediaDisciplinas = aluno.notas.map(
+            (nota, i) => nota === (mediasTurma[i] || 0)
+          );
           const frequenciaBaixa = aluno.frequencia < 75;
 
           return (
@@ -72,9 +75,11 @@ const AlunoList = () => {
                       ? "#c8e6c9"
                       : abaixoMediaDisciplinas.some(Boolean)
                       ? "#ffebee"
+                      : naMediaDisciplinas.some(Boolean)
+                      ? "#e0f7fa" 
                       : "#ffffff",
                   boxShadow: 3,
-                  height: "100%", 
+                  height: "100%",
                   display: "flex",
                   flexDirection: "column",
                   justifyContent: "space-between",
@@ -128,6 +133,14 @@ const AlunoList = () => {
                           <Chip
                             label="Abaixo da média"
                             color="error"
+                            size="small"
+                            sx={{ ml: 1 }}
+                          />
+                        )}
+                        {nota === (mediasTurma[i] || 0) && (
+                          <Chip
+                            label="Na média"
+                            color="info"
                             size="small"
                             sx={{ ml: 1 }}
                           />
